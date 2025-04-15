@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+
+  <meta charset="UTF-8">
+  <title>Usługi remontowo-budowlane</title>
+  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <script src="js.js" defer></script>
+</head>
+<body>
+<header>
+  <div id="tlo" class="tlo"></div>
+  <div id="logo"><img src="img/logo.png" class="photo" ></div>
+  <div id="tlo2" class="tlo"></div>
+  <div id="kontakt" class="kl1">
+    <div id="mail"><img src="img/mail.png" class="ikon2"> <h4>piotr.jarmosz@o2.pl</h4></div>
+    <div id="phone"><img src="img/phone.png" class="ikon2"> <h4>791500792</h4> </div>
+    <div id="social">
+      <a href="http://www.facebook.com" target="_blank">  <img src="img/faceBook.png" class="ikon"></a>
+      <a href="http://www.youtube.com" target="_blank"><img src="img/youTube.png" class="ikon"></a>
+      <a href="http://www.twitter.com" target="_blank"><img src="img/twit.png" class="ikon"></a>
+      <a href="http://www.instagram.com" target="_blank"> <img src="img/inst.png" class="ikon"></a>
+    </div>
+  </div>
+  <div id="tlo3"class="tlo"></div>
+</header>
+<div class="wrapper">
+<main>
+  <aside class="wys">
+
+    <nav>
+      <div class="hamburger" onclick="toggleMenu()">&#9776</div>
+      <ul class="menu" id="menu">
+        <li id="bt0">Menu:</li>
+        <li id="bt1"><img src="img/strzalka.jpg" class="ikonaMenu">Home</li>
+        <li id="bt2"><img src="img/strzalka.jpg" class="ikonaMenu" >Kontakt</li>
+        <li id="bt3"><img src="img/strzalka.jpg" class="ikonaMenu">Galeria</li>
+      </ul>
+
+    </nav>
+  </aside>
+
+  <section id="podstrona1" class="main">
+
+  </section>
+  <section id="podstrona2" class="main">
+    <h2>Formularz Kontaktowy</h2>
+
+    <form action="https://formspree.io/f/xwplzwow" method="POST">
+      <input type="hidden" name="_redirect" value="https://piotr199011.github.io/remonty-pijarbud/dziekujemy.html">
+
+      <label for="name">Imię i Nazwisko:</label>
+      <input type="text" id="name" name="name" placeholder="Wpisz swoje imię i nazwisko" required>
+
+      <label for="email">Twój e-mail:</label>
+      <input type="email" id="email" name="email" placeholder="Podaj swój adres e-mail" required>
+
+      <label for="subject">Temat wiadomości:</label>
+      <select id="subject" name="subject" required>
+        <option value="">-- Wybierz temat --</option>
+        <option value="Zapytanie ogólne">Zapytanie ogólne</option>
+        <option value="Wsparcie techniczne">Wsparcie techniczne</option>
+        <option value="Oferta współpracy">Oferta współpracy</option>
+        <option value="Inne">Inne</option>
+      </select>
+
+      <label for="message">Wiadomość:</label>
+      <textarea id="message" name="message" rows="5" placeholder="Wpisz tutaj swoją wiadomość" required></textarea>
+
+      <button type="submit">Wyślij</button>
+    </form>
+
+    <p id="formMessage"></p>
+  </section>
+
+
+
+  <section id="podstrona3" class="main">
+
+    <div class="gallery">
+      <img src="img/image1.jpg" alt="Zdjecie 1">
+      <img src="img/image2.jpg" alt="Zdjecie 2">
+      <img src="img/image3.jpg" alt="Zdjecie 3">
+      <img src="img/image4.jpg" alt="Zdjecie 4">
+      <img src="img/image5.jpg" alt="Zdjecie 5">
+      <img src="img/image6.jpg" alt="Zdjecie 6">
+      <img src="img/image7.jpg" alt="Zdjecie 7">
+      <img src="img/image8.jpg" alt="Zdjecie 8">
+      <img src="img/image9.jpg" alt="Zdjecie 9">
+      <img src="img/image10.jpg" alt="Zdjecie 10">
+      <img src="img/image11.jpg" alt="Zdjecie 11">
+      <img src="img/image12.jpg" alt="Zdjecie 12">
+      <img src="img/image13.jpg" alt="Zdjecie 13">
+      <img src="img/image14.jpg" alt="Zdjecie 14">
+      <img src="img/image15.jpg" alt="Zdjecie 15">
+      <img src="img/image16.jpg" alt="Zdjecie 16">
+      <img src="img/image17.jpg" alt="Zdjecie 17">
+      <img src="img/image18.jpg" alt="Zdjecie 18">
+      <img src="img/image19.jpg" alt="Zdjecie 19">
+      <img src="img/image20.jpg" alt="Zdjecie 20">
+      <img src="img/image21.jpg" alt="Zdjecie 21">
+      <img src="img/image22.jpg" alt="Zdjecie 22">
+    </div>
+    <button id="toggleGallery">Pokaż więcej</button>
+  </section>
+</main>
+<footer>
+  <div class="footer-container">
+    <div class="footer-section about">
+      <h2>O nas</h2>
+      <p>Jesteśmy firmą zajmującą się remontami i wykończeniami budynków.</p>
+    </div>
+
+    <div class="footer-section links">
+      <h2>Szybkie linki</h2>
+      <ul>
+        <li id="bt4">Home</li>
+        <li id="bt5">Kontakt</li>
+        <li id="bt6">Galeria</li>
+      </ul>
+    </div>
+
+    <div class="footer-section social">
+      <h2>Śledź nas</h2>
+      <div class="social-icons">
+        <a href="http://www.facebook.com" target="_blank">  <img src="img/faceBook.png" class="ikon"></a>
+        <a href="http://www.youtube.com" target="_blank"><img src="img/youTube.png" class="ikon"></a>
+        <a href="http://www.twitter.com" target="_blank"><img src="img/twit.png" class="ikon"></a>
+        <a href="http://www.instagram.com" target="_blank"> <img src="img/inst.png" class="ikon"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    &copy; 2025 PiJarBud | Wszystkie prawa zastrzeżone
+  </div>
+</footer>
+</div>
+</body>
