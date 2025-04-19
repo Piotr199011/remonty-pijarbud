@@ -8,18 +8,42 @@ function menu(name){
 }
 
 menu("podstrona1");
-let bt1=document.getElementById('bt1');
-bt1.addEventListener('click',()=>{menu('podstrona1')})
-let bt2=document.getElementById('bt2');
-bt2.addEventListener('click',()=>{menu('podstrona2')})
-let bt3=document.getElementById('bt3');
-bt3.addEventListener('click',()=>{menu('podstrona3')})
-let bt4=document.getElementById('bt4');
-bt4.addEventListener('click',()=>{menu('podstrona1')})
-let bt5=document.getElementById('bt5');
-bt5.addEventListener('click',()=>{menu('podstrona2')})
-let bt6=document.getElementById('bt6');
-bt6.addEventListener('click',()=>{menu('podstrona3')})
+
+
+function updateVisibleImages() {
+  const gallery = document.getElementById("podstrona3");
+  const images = gallery.querySelectorAll("img");
+  const visibleCount = 8;
+
+  images.forEach((img, index) => {
+    if (gallery.classList.contains("expanded") || index < visibleCount) {
+      img.style.display = "inline-block";
+    } else {
+      img.style.display = "none";
+    }
+  });
+}
+
+
+const buttons = [
+  { id: "bt1", target: "podstrona1" },
+  { id: "bt2", target: "podstrona2" },
+  { id: "bt3", target: "podstrona3" },
+  { id: "bt4", target: "podstrona1" },
+  { id: "bt5", target: "podstrona2" },
+  { id: "bt6", target: "podstrona3" },
+];
+
+buttons.forEach(btn => {
+  const element = document.getElementById(btn.id);
+  element.addEventListener("click", () => {
+    menu(btn.target);
+    if (btn.target === "podstrona3") {
+      updateVisibleImages();
+    }
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector(".hamburger");
