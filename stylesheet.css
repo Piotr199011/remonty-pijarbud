@@ -347,12 +347,6 @@ footer{
 }
 
 
-@media (max-width: 400px) {
-  .menu {
-    max-height: 600px;
-  }
-}
-
 footer {
    background: #121111;
     color: white;
