@@ -129,37 +129,6 @@ function toggleCustomSubject() {
   }
 }
 
-
-function initGallery() {
-  const gallery = document.getElementById("podstrona3");
-  const images = gallery.querySelectorAll("img");
-  const loadMoreBtn = document.getElementById("toggleGallery");
-  const visibleCount = 8;
-
-  function updateVisibleImages() {
-    images.forEach((img, index) => {
-      if (gallery.classList.contains("expanded") || index < visibleCount) {
-        img.style.display = "inline-block";
-      } else {
-        img.style.display = "none";
-      }
-    });
-  }
-
-  if (loadMoreBtn) {
-    loadMoreBtn.addEventListener("click", function () {
-      gallery.classList.toggle("expanded");
-      loadMoreBtn.textContent = gallery.classList.contains("expanded")
-        ? "Pokaż mniej"
-        : "Pokaż więcej";
-      updateVisibleImages();
-    });
-
-    gallery.classList.remove("expanded");
-    loadMoreBtn.textContent = "Pokaż więcej";
-    updateVisibleImages();
-  }
-}
 document.addEventListener("DOMContentLoaded", function () {
   const galleryImages = document.querySelectorAll(".gallery img");
 
@@ -222,3 +191,34 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+function initGallery() {
+  const gallery = document.getElementById("podstrona3");
+  const images = gallery.querySelectorAll("img");
+  const loadMoreBtn = document.getElementById("toggleGallery");
+  const visibleCount = 8;
+
+  function updateVisibleImages() {
+    images.forEach((img, index) => {
+      if (gallery.classList.contains("expanded") || index < visibleCount) {
+        img.style.display = "inline-block";
+      } else {
+        img.style.display = "none";
+      }
+    });
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", function () {
+      gallery.classList.toggle("expanded");
+      loadMoreBtn.textContent = gallery.classList.contains("expanded")
+        ? "Pokaż mniej"
+        : "Pokaż więcej";
+      updateVisibleImages();
+    });
+
+    gallery.classList.remove("expanded");
+    loadMoreBtn.textContent = "Pokaż więcej";
+    updateVisibleImages();
+  }
+}
