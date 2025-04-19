@@ -1,29 +1,14 @@
 function menu(name){
-  let main=document.getElementsByClassName("main");
-  for (let m of main){
-    m.style.display="none";}
+  let main = document.getElementsByClassName("main");
+  for (let m of main) {
+    m.style.display = "none";
+  }
 
   let elem = document.getElementById(name);
-  elem.style.display="block";
+  elem.style.display = "block";
 }
 
 menu("podstrona1");
-
-
-function updateVisibleImages() {
-  const gallery = document.getElementById("podstrona3");
-  const images = gallery.querySelectorAll("img");
-  const visibleCount = 8;
-
-  images.forEach((img, index) => {
-    if (gallery.classList.contains("expanded") || index < visibleCount) {
-      img.style.display = "inline-block";
-    } else {
-      img.style.display = "none";
-    }
-  });
-}
-
 
 const buttons = [
   { id: "bt1", target: "podstrona1" },
@@ -39,11 +24,10 @@ buttons.forEach(btn => {
   element.addEventListener("click", () => {
     menu(btn.target);
     if (btn.target === "podstrona3") {
-      updateVisibleImages();
+      initGallery();
     }
   });
 });
-
 
 document.addEventListener("DOMContentLoaded", function() {
   const hamburger = document.querySelector(".hamburger");
@@ -68,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "img/plytki.png",
     "img/gladz.png",
     "img/elektryka.png",
-        "img/hydraulika.png",
+    "img/hydraulika.png",
   ];
 
   let currentIndex = 0;
@@ -144,6 +128,38 @@ function toggleCustomSubject() {
     customSubjectInput.removeAttribute("required");
   }
 }
+
+
+function initGallery() {
+  const gallery = document.getElementById("podstrona3");
+  const images = gallery.querySelectorAll("img");
+  const loadMoreBtn = document.getElementById("toggleGallery");
+  const visibleCount = 8;
+
+  function updateVisibleImages() {
+    images.forEach((img, index) => {
+      if (gallery.classList.contains("expanded") || index < visibleCount) {
+        img.style.display = "inline-block";
+      } else {
+        img.style.display = "none";
+      }
+    });
+  }
+
+  if (loadMoreBtn) {
+    loadMoreBtn.addEventListener("click", function () {
+      gallery.classList.toggle("expanded");
+      loadMoreBtn.textContent = gallery.classList.contains("expanded")
+        ? "Pokaż mniej"
+        : "Pokaż więcej";
+      updateVisibleImages();
+    });
+
+    gallery.classList.remove("expanded");
+    loadMoreBtn.textContent = "Pokaż więcej";
+    updateVisibleImages();
+  }
+}
 document.addEventListener("DOMContentLoaded", function () {
   const galleryImages = document.querySelectorAll(".gallery img");
 
@@ -192,13 +208,11 @@ document.addEventListener("DOMContentLoaded", function () {
   leftArrow.addEventListener("click", showPrev);
   rightArrow.addEventListener("click", showNext);
 
-
   modal.addEventListener("click", function (e) {
     if (e.target === modal) {
       closeModal();
     }
   });
-
 
   document.addEventListener("keydown", function (e) {
     if (modal.style.display === "block") {
@@ -208,43 +222,3 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const gallery = document.getElementById("podstrona3");
-  const images = gallery.querySelectorAll("img");
-  const loadMoreBtn = document.getElementById("toggleGallery");
-
-  const visibleCount = 8;
-
-  function updateVisibleImages() {
-    images.forEach((img, index) => {
-      if (gallery.classList.contains("expanded") || index < visibleCount) {
-        img.style.display = "inline-block";
-      } else {
-        img.style.display = "none";
-      }
-    });
-  }
-
-  loadMoreBtn.addEventListener("click", function () {
-    gallery.classList.toggle("expanded");
-
-    if (gallery.classList.contains("expanded")) {
-      loadMoreBtn.textContent = "Pokaż mniej";
-    } else {
-      loadMoreBtn.textContent = "Pokaż więcej";
-    }
-
-    updateVisibleImages();
-  });
-
-
-  gallery.classList.remove("expanded");
-  loadMoreBtn.textContent = "Pokaż więcej";
-  updateVisibleImages();
-});
-
-
-
-
