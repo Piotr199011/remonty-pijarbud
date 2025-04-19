@@ -333,11 +333,9 @@ footer{
 #podstrona2{
    position:relative;
    top:250px;
-   min-height:450px;
+
 }
-#podstrona1{
-min-height:450px;
-}
+
 footer{
    position:relative;
 }
