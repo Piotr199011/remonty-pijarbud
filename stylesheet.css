@@ -243,7 +243,7 @@ footer{
 
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
 
 .gallery {
    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  gap: 10px;
@@ -336,8 +336,10 @@ footer{
    min-height:450px;
 }
 #podstrona1{
-max-height:350px;
+max-height:450px;
 }
+#podstrona3{
+top:200px;}
 footer{
    position:relative;
 }
