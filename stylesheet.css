@@ -254,14 +254,12 @@ footer{
    margin-top:30% !important;
 }
 .slider-button.left{
-position:relative;
-left:-75px !important;
-top:200px;
+position:absolute;
+
 }
 .slider-button.right{
-position:relative;
-right:-310px !important;
-top:200px;
+position:absolute;
+
 }
 .slider-image {
   position:relative;
