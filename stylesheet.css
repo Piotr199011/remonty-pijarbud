@@ -254,10 +254,10 @@ footer{
    margin-top:30% !important;
 }
 .slider-image {
-position:relative;
+  position:relative;
   margin-top:40px;
-  width: 400px !important;
-  height: auto !important;
+  width: 400px;
+  height: auto;
   object-fit: contain;
 }
   header {

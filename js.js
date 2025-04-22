@@ -25,14 +25,14 @@ buttons.forEach(btn => {
     menu(btn.target);
     if (btn.target === "podstrona3") {
       if (!document.querySelector(".modal")) {
-        initGallery(); // dodaj modal i obsługę kliknięć tylko raz
+        initGallery();
       }
     }
   });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-  // HAMBURGER MENU
+
   const hamburger = document.querySelector(".hamburger");
   const menuElement = document.querySelector(".menu");
 
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // SLIDER
+
   const images = [
     "img/docieplenia.png",
     "img/panele.png",
@@ -98,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     restartInterval();
   });
 
-  // FORMULARZ
+
   document.getElementById("contactForm").addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -118,7 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Inicjalizuj galerię od razu przy załadowaniu strony (ważne na GitHub Pages)
+
   if (document.getElementById("podstrona3") && !document.querySelector(".modal")) {
     initGallery();
   }
@@ -137,7 +137,7 @@ function toggleCustomSubject() {
   }
 }
 
-// GALERIA + MODAL
+
 function initGallery() {
   const gallery = document.getElementById("podstrona3");
   const images = gallery.querySelectorAll("img");
