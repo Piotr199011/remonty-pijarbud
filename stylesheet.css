@@ -253,10 +253,20 @@ footer{
 .slider-button{
    margin-top:30% !important;
 }
+.slider-button.left{
+position:relative;
+left:-75px !important;
+top:200px;
+}
+.slider-button.right{
+position:relative;
+right:-310px !important;
+top:200px;
+}
 .slider-image {
   position:relative;
   margin:0;
-  margin-top:160px !important;
+  margin-top:130px !important;
   width: 400px !important;
   height: auto !important;
   object-fit: contain !important;
