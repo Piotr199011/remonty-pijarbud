@@ -251,10 +251,10 @@ footer{
    margin-top:400px !important;
   }
 .slider-button{
-   margin-top:30%;
+   margin-top:30% !important;
 }
 .slider-image {
-  margin-top:40px;
+  margin-top:-40px;
   width: 200px !important;
   height: auto !important;
   object-fit: contain;
