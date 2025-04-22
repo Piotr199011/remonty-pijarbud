@@ -256,10 +256,10 @@ footer{
    margin:0;
 }
 .slider-button.left{
-   margin-left: 9% !important;
+   margin-left: 15% !important;
 }
 .slider-button.right{
-   margin-right:9% !important;
+   margin-right:15% !important;
 }
 .slider-image {
   position:relative;
