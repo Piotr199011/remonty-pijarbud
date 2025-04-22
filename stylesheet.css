@@ -255,6 +255,7 @@ footer{
 }
 .slider-image {
   position:relative;
+  top:100px;
   margin-top:40px;
   width: 400px;
   height: auto;
