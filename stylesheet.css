@@ -245,7 +245,7 @@ footer{
 
 @media (max-width: 600px) {
 .modal{
-top:100px;
+margin-top:100px;
 }
 .gallery {
    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));  gap: 10px;
