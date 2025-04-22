@@ -254,8 +254,8 @@ footer{
    margin-top:20%;
 }
 .slider-image {
-  margin-top:140px;
-  width: 300px !important;
+  margin-top:40px;
+  width: 200px !important;
   height: auto !important;
   object-fit: contain;
 }
