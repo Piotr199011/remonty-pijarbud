@@ -252,15 +252,9 @@ footer{
   }
 .slider-button{
    margin-top:30% !important;
+   position:absolute;
 }
-.slider-button.left{
-position:absolute;
 
-}
-.slider-button.right{
-position:absolute;
-
-}
 .slider-image {
   position:relative;
   margin:0;
