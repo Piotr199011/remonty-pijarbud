@@ -253,11 +253,11 @@ footer{
 .slider-button{
    margin-top:20%;
 }
-.slider-image{
-   margin-top:170px;
-   object-fit: scale-down;
-   height:45% !important;
-   width:auto;
+.slider-image {
+  margin-top:170px;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain;
 }
   header {
     flex-direction: column;
