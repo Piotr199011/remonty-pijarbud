@@ -1,4 +1,4 @@
-function menu(name){
+function menu(name) {
   let main = document.getElementsByClassName("main");
   for (let m of main) {
     m.style.display = "none";
@@ -29,22 +29,22 @@ buttons.forEach(btn => {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
+  // HAMBURGER MENU
   const hamburger = document.querySelector(".hamburger");
-  const menu = document.querySelector(".menu");
+  const menuElement = document.querySelector(".menu");
 
-  hamburger.addEventListener("click", function() {
-    menu.classList.toggle("active");
+  hamburger.addEventListener("click", function () {
+    menuElement.classList.toggle("active");
   });
 
-  document.addEventListener("click", function(event) {
-    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
-      menu.classList.remove("active");
+  document.addEventListener("click", function (event) {
+    if (!menuElement.contains(event.target) && !hamburger.contains(event.target)) {
+      menuElement.classList.remove("active");
     }
   });
-});
 
-document.addEventListener("DOMContentLoaded", function () {
+  // SLIDER
   const images = [
     "img/docieplenia.png",
     "img/panele.png",
@@ -81,6 +81,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let interval = setInterval(() => changeImage(currentIndex + 1), 3000);
 
+  function restartInterval() {
+    clearInterval(interval);
+    interval = setInterval(() => changeImage(currentIndex + 1), 3000);
+  }
+
   prevButton.addEventListener("click", () => {
     changeImage(currentIndex - 1);
     restartInterval();
@@ -91,28 +96,24 @@ document.addEventListener("DOMContentLoaded", function () {
     restartInterval();
   });
 
-  function restartInterval() {
-    clearInterval(interval);
-    interval = setInterval(() => changeImage(currentIndex + 1), 3000);
-  }
-});
+  // FORMULARZ
+  document.getElementById("contactForm").addEventListener("submit", function (event) {
+    event.preventDefault();
 
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+    let formData = new FormData(this);
 
-  let formData = new FormData(this);
-
-  fetch("send_email.php", {
-    method: "POST",
-    body: formData
-  })
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("formMessage").innerText = data;
-    document.getElementById("contactForm").reset();
-  })
-  .catch(error => {
-    document.getElementById("formMessage").innerText = "Wystąpił błąd, spróbuj ponownie.";
+    fetch("send_email.php", {
+      method: "POST",
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("formMessage").innerText = data;
+      document.getElementById("contactForm").reset();
+    })
+    .catch(error => {
+      document.getElementById("formMessage").innerText = "Wystąpił błąd, spróbuj ponownie.";
+    });
   });
 });
 
@@ -129,82 +130,79 @@ function toggleCustomSubject() {
   }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const galleryImages = document.querySelectorAll(".gallery img");
-
-  const modal = document.createElement("div");
-  modal.classList.add("modal");
-  modal.innerHTML = `
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-img">
-    <div class="arrow left">&#10094;</div>
-    <div class="arrow right">&#10095;</div>
-  `;
-  document.body.appendChild(modal);
-
-  const modalImg = document.getElementById("modal-img");
-  const closeBtn = modal.querySelector(".close");
-  const leftArrow = modal.querySelector(".left");
-  const rightArrow = modal.querySelector(".right");
-
-  let currentIndex = 0;
-
-  function openModal(index) {
-    currentIndex = index;
-    modal.style.display = "block";
-    modalImg.src = galleryImages[currentIndex].src;
-  }
-
-  function closeModal() {
-    modal.style.display = "none";
-  }
-
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
-    modalImg.src = galleryImages[currentIndex].src;
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % galleryImages.length;
-    modalImg.src = galleryImages[currentIndex].src;
-  }
-
-  galleryImages.forEach((img, index) => {
-    img.addEventListener("click", () => openModal(index));
-  });
-
-  closeBtn.addEventListener("click", closeModal);
-  leftArrow.addEventListener("click", showPrev);
-  rightArrow.addEventListener("click", showNext);
-
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      closeModal();
-    }
-  });
-
-  document.addEventListener("keydown", function (e) {
-    if (modal.style.display === "block") {
-      if (e.key === "ArrowLeft") showPrev();
-      else if (e.key === "ArrowRight") showNext();
-      else if (e.key === "Escape") closeModal();
-    }
-  });
-});
-
+// GALERIA + MODAL
 function initGallery() {
   const gallery = document.getElementById("podstrona3");
   const images = gallery.querySelectorAll("img");
   const loadMoreBtn = document.getElementById("toggleGallery");
   const visibleCount = 8;
 
+  // MODAL INIT
+  if (!document.querySelector(".modal")) {
+    const modal = document.createElement("div");
+    modal.classList.add("modal");
+    modal.innerHTML = `
+      <span class="close">&times;</span>
+      <img class="modal-content" id="modal-img">
+      <div class="arrow left">&#10094;</div>
+      <div class="arrow right">&#10095;</div>
+    `;
+    document.body.appendChild(modal);
+
+    const modalImg = document.getElementById("modal-img");
+    const closeBtn = modal.querySelector(".close");
+    const leftArrow = modal.querySelector(".left");
+    const rightArrow = modal.querySelector(".right");
+
+    let modalIndex = 0;
+
+    function openModal(index) {
+      modalIndex = index;
+      modal.style.display = "block";
+      modalImg.src = images[modalIndex].src;
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    function showPrev() {
+      modalIndex = (modalIndex - 1 + images.length) % images.length;
+      modalImg.src = images[modalIndex].src;
+    }
+
+    function showNext() {
+      modalIndex = (modalIndex + 1) % images.length;
+      modalImg.src = images[modalIndex].src;
+    }
+
+    images.forEach((img, index) => {
+      img.addEventListener("click", () => openModal(index));
+    });
+
+    closeBtn.addEventListener("click", closeModal);
+    leftArrow.addEventListener("click", showPrev);
+    rightArrow.addEventListener("click", showNext);
+
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (modal.style.display === "block") {
+        if (e.key === "ArrowLeft") showPrev();
+        else if (e.key === "ArrowRight") showNext();
+        else if (e.key === "Escape") closeModal();
+      }
+    });
+  }
+
+  // POKAŻ WIĘCEJ
   function updateVisibleImages() {
     images.forEach((img, index) => {
-      if (gallery.classList.contains("expanded") || index < visibleCount) {
-        img.style.display = "inline-block";
-      } else {
-        img.style.display = "none";
-      }
+      img.style.display = (gallery.classList.contains("expanded") || index < visibleCount)
+        ? "inline-block"
+        : "none";
     });
   }
 
