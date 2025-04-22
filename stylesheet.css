@@ -255,11 +255,11 @@ footer{
 }
 .slider-image {
   position:relative;
-  top:100px;
-  margin-top:40px;
-  width: 400px;
-  height: auto;
-  object-fit: contain;
+  top:100px !important;
+  margin-top:40px !important;
+  width: 400px !important;
+  height: auto !important;
+  object-fit: contain !important;
 }
   header {
     flex-direction: column;
