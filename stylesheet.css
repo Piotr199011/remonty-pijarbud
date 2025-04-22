@@ -254,7 +254,7 @@ footer{
    margin-top:20%;
 }
 .slider-image{
-   margin-top:180px;
+   margin-top:170px;
    object-fit: scale-down;
    height:45% !important;
    width:auto;
@@ -335,9 +335,7 @@ footer{
    top:250px;
    min-height:650px;
 }
-#podstrona1{
-min-height:500px;
-}
+
 
 footer{
    position:relative;
