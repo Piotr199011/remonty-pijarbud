@@ -24,7 +24,9 @@ buttons.forEach(btn => {
   element.addEventListener("click", () => {
     menu(btn.target);
     if (btn.target === "podstrona3") {
-      initGallery();
+      if (!document.querySelector(".modal")) {
+        initGallery(); // dodaj modal i obsługę kliknięć tylko raz
+      }
     }
   });
 });
@@ -115,6 +117,11 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("formMessage").innerText = "Wystąpił błąd, spróbuj ponownie.";
     });
   });
+
+  // Inicjalizuj galerię od razu przy załadowaniu strony (ważne na GitHub Pages)
+  if (document.getElementById("podstrona3") && !document.querySelector(".modal")) {
+    initGallery();
+  }
 });
 
 function toggleCustomSubject() {
@@ -137,7 +144,6 @@ function initGallery() {
   const loadMoreBtn = document.getElementById("toggleGallery");
   const visibleCount = 8;
 
-  // MODAL INIT
   if (!document.querySelector(".modal")) {
     const modal = document.createElement("div");
     modal.classList.add("modal");
@@ -197,7 +203,6 @@ function initGallery() {
     });
   }
 
-  // POKAŻ WIĘCEJ
   function updateVisibleImages() {
     images.forEach((img, index) => {
       img.style.display = (gallery.classList.contains("expanded") || index < visibleCount)
